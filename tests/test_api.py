@@ -11,6 +11,8 @@ from studio.storage import write_json
 
 @pytest.fixture
 def app(tmp_path, monkeypatch):
+    monkeypatch.delenv('STUDIO_LOCAL_MODE', raising=False)
+    monkeypatch.delenv('STUDIO_PUBLIC_MODE', raising=False)
     monkeypatch.setenv('OPENROUTER_API_KEY', 'synthetic-test-credential')
     monkeypatch.setenv('STUDIO_ACCESS_TOKEN', 'test-access-code')
     return create_app(tmp_path, run_queue=False)
@@ -49,6 +51,19 @@ def test_generation_needs_config(client, monkeypatch):
 def test_generation_requires_access_code(client):
     response = client.post('/api/jobs', data={'payload': json.dumps({'query': 'A valid synthetic test request'})})
     assert response.status_code == 401
+
+
+def test_public_mode_keeps_ownership_and_requires_provider(client, app, monkeypatch):
+    monkeypatch.setenv('STUDIO_PUBLIC_MODE', '1')
+    monkeypatch.delenv('STUDIO_ACCESS_TOKEN')
+    assert client.get('/api/config').json()['access_code_required'] is False
+    response = client.post('/api/jobs', data={'payload': json.dumps({'query': 'A valid public test request'})})
+    assert response.status_code == 202
+    with TestClient(app) as stranger:
+        assert stranger.get('/api/jobs/' + response.json()['id']).status_code == 404
+    monkeypatch.delenv('OPENROUTER_API_KEY')
+    assert client.get('/api/config').json()['generation_available'] is False
+    assert client.post('/api/jobs', data={'payload': '{}'}).status_code == 503
 
 
 def test_task_ownership_covers_read_export_resume_and_delete(client, app):
@@ -147,3 +162,28 @@ def test_streaming_body_limit_cannot_be_bypassed(client, monkeypatch):
         yield b'payload=' + b'x'*301
     result=client.post('/api/jobs',content=chunks(),headers={'Content-Type':'application/x-www-form-urlencoded','Authorization':'Bearer test-access-code'})
     assert result.status_code==413
+
+
+def test_model_selection_is_validated_and_persisted(client, app):
+    payload = {'query': 'A valid synthetic experiment request', 'model': 'qwen/qwen3.6-plus'}
+    headers = {'Authorization': 'Bearer test-access-code'}
+    response = client.post('/api/jobs', data={'payload': json.dumps(payload)}, headers=headers)
+    assert response.status_code == 202
+    assert response.json()['model'] == payload['model']
+    job_id = response.json()['id']
+    assert json.loads((app.state.store.root / job_id / 'request.json').read_text())['model'] == payload['model']
+    payload['model'] = 'unapproved/arbitrary-model'
+    assert client.post('/api/jobs', data={'payload': json.dumps(payload)}, headers=headers).status_code == 422
+    assert client.get('/api/config').json()['default_model'] == 'qwen/qwen3.6-flash'
+
+
+def test_local_mode_needs_loopback_peer_and_host(app, monkeypatch):
+    monkeypatch.setenv('STUDIO_LOCAL_MODE', '1')
+    payload = {'payload': json.dumps({'query': 'A valid synthetic experiment request'})}
+    with TestClient(app, base_url='http://127.0.0.1', client=('127.0.0.1', 50000)) as local:
+        assert local.get('/api/config').json()['access_code_required'] is False
+        assert local.post('/api/jobs', data=payload).status_code == 202
+        assert local.get('/api/config', headers={'Host': 'unrelated.example'}).status_code == 403
+        assert local.post('/api/jobs', data=payload, headers={'Origin': 'http://unrelated.example'}).status_code == 403
+    with TestClient(app, base_url='http://127.0.0.1', client=('198.51.100.1', 50000)) as remote:
+        assert remote.post('/api/jobs', data=payload).status_code == 403

@@ -1,0 +1,31 @@
+{
+  "id": "V2-13",
+  "title_zh": "成年小鼠心肌细胞",
+  "title_en": "Adult mouse cardiomyocytes",
+  "category": "cells",
+  "query": "Langendorff-free isolation and calcium-tolerant culture of adult mouse cardiomyocytes",
+  "model": "qwen/qwen3.6-flash",
+  "doi": "10.1161/CIRCRESAHA.116.309202",
+  "title": "A Simplified, Langendorff-Free Method for Concomitant Isolation of Viable Cardiac Myocytes and Nonmyocytes From the Adult Mouse Heart",
+  "state": "example",
+  "historical": true,
+  "markdown": "## Protocol: Langendorff-free isolation and calcium-tolerant culture of adult mouse cardiomyocytes\n\n### Overview\n\nThis protocol outlines a Langendorff-free method for isolating adult mouse cardiomyocytes (CMs) and maintaining them in calcium-tolerant culture. The process involves heart extraction, enzymatic digestion via sequential buffer injections, tissue dissociation, filtration, and gravity-based settling to enrich myocytes while gradually restoring physiological calcium levels. Isolated CMs can be plated on laminin-coated surfaces for subsequent culture.\n\n### Materials/Reagents\n\nEDTA buffer, perfusion buffer, collagenase buffer, stop buffer, intermediate calcium reintroduction buffers, plating media, culture media, laminin (5 μg/mL), sterile 10 mL syringes, sterile 27 G hypodermic needles, Reynolds forceps, 60-mm dish, 100-μm filter, hemocytometer, tissue culture plastic or glass coverslips.\n\n### Equipment\n\nAnesthesia equipment, chest opening tools, syringes with attached needles, forceps, dishes, filters, incubator (37°C, 5% CO2, humidified).\n\n### Safety & Sterility\n\nAll buffers and media were prepared as detailed in [Appendix D]. Sterile 10 mL syringes and sterile 27 G hypodermic needles were used for buffer apportionment. Tissue culture was performed in a humidified incubator at 37°C with 5% CO2.\n\n## Reagent Preparation\n\n### Preparation\n\n1. Prepare buffers and media as detailed in [Appendix D]. [1] <!-- protocol-step:B01-T0-S01 -->\n2. Apportion EDTA, perfusion, and collagenase buffers into sterile 10 mL syringes, and attach sterile 27 G hypodermic needles ([Online Figure IA]). [1] <!-- protocol-step:B01-T0-S02 -->\n\n## Cardiac Myocyte Isolation\n\n### Heart Extraction and Preclearing\n\n1. Anesthetize C57/BL6J mice aged 8 to 12 weeks, and open the chest to expose the heart. [1] <!-- protocol-step:B02-T0-S01 -->\n2. Cut the descending aorta, and immediately flush the heart by injecting 7 mL of EDTA buffer into the right ventricle. [1] <!-- protocol-step:B02-T0-S02 -->\n3. Clamp the ascending aorta using Reynolds forceps, and transfer the heart to a 60-mm dish containing fresh EDTA buffer. [1] <!-- protocol-step:B02-T0-S03 -->\n\n### Digestion\n\n1. Achieve digestion by sequentially injecting 10 mL of EDTA buffer, 3 mL of perfusion buffer, and 30 to 50 mL of collagenase buffer into the left ventricle (LV). [1] <!-- protocol-step:B02-T1-S01 -->\n\n### Tissue Dissociation\n\n1. Separate the constituent chambers (atria, LV, and right ventricle), and gently pull them into 1-mm pieces using forceps. [1] <!-- protocol-step:B02-T2-S01 -->\n2. Complete cellular dissociation by gentle trituration. [1] <!-- protocol-step:B02-T2-S02 -->\n3. Inhibit enzyme activity by adding 5 mL of stop buffer. [1] <!-- protocol-step:B02-T2-S03 -->\n\n### Filtration and Gravity Settling\n\n1. Pass the cell suspension through a 100-μm filter. [1] <!-- protocol-step:B02-T3-S01 -->\n2. Subject cells to 4 sequential rounds of gravity settling, using 3 intermediate calcium reintroduction buffers to gradually restore calcium concentration to physiological levels. [1] <!-- protocol-step:B02-T3-S02 -->\n3. Collect the cell pellet from each round, which is enriched with myocytes and ultimately forms a highly pure myocyte fraction. [1] <!-- protocol-step:B02-T3-S03 -->\n4. Combine the supernatant from each round to produce a fraction containing nonmyocyte cardiac populations. [1] <!-- protocol-step:B02-T3-S04 -->\n\n### Quantification\n\n1. Quantify CM yields and the percentage of viable rod-shaped cells using a hemocytometer. [1] <!-- protocol-step:B02-T4-S01 -->\n\n### CM Culture\n\n#### Branch A: CM Plating\n\n1. Where required, resuspend CMs in prewarmed plating media and plate them at an application-dependent density onto laminin (5 μg/mL) precoated tissue culture plastic or glass coverslips, in a humidified tissue culture incubator (37°C, 5% CO2). [1] <!-- protocol-step:B02-T5-S01 -->\n\n#### Branch A: CM Maintenance\n\n1. After 1 hour, and every 48 hours thereafter, change the media to fresh, prewarmed culture media. [1] <!-- protocol-step:B02-T5-S02 -->\n\n## References\n\n- [1] A Simplified, Langendorff-Free Method for Concomitant Isolation of Viable Cardiac Myocytes and Nonmyocytes From the Adult Mouse Heart — https://www.semanticscholar.org/paper/b4386de502a084a1b81ff6cce8ef0a5ef18bfcd9\n",
+  "review_notes": [
+    "Historical model-generated draft. Review the source and applicability before use.",
+    "Recorded source match: 明确匹配"
+  ],
+  "sources": [
+    {
+      "title": "A Simplified, Langendorff-Free Method for Concomitant Isolation of Viable Cardiac Myocytes and Nonmyocytes From the Adult Mouse Heart",
+      "doi": "10.1161/CIRCRESAHA.116.309202",
+      "url": "https://doi.org/10.1161/CIRCRESAHA.116.309202",
+      "source": "Primary reference · 原始案例主文献"
+    }
+  ],
+  "provenance": {
+    "dataset": "50题本地原文Query修订版_20261027",
+    "date": "2026-10-27",
+    "protocol_sha256": "6d3972df50c1c4ebece467f49242e595f2c5f1cc03eadde0b876ed09df26b4f1",
+    "match_status": "明确匹配"
+  }
+}

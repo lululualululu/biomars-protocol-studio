@@ -9,6 +9,7 @@ from pathlib import Path
 import yaml
 
 from studio.storage import write_json
+from studio.models import MODEL_IDS, default_model
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -20,7 +21,19 @@ def summarize(status):
     if hasattr(bundle, 'model_dump'):
         bundle = bundle.model_dump()
     items = bundle.get('items', bundle.get('evidence', [])) if isinstance(bundle, dict) else []
-    sources = [{key: item.get(key) for key in ('id', 'evidence_id', 'title', 'url', 'doi', 'year', 'source')} for item in items if isinstance(item, dict)]
+    # A retrieval candidate is not necessarily used to write the protocol.
+    primary = context.get('primary_anchor_id')
+    anchors = {primary} if primary else set(bundle.get('anchor_ids', []))
+    sources = []
+    for item in items:
+        if not isinstance(item, dict) or (anchors and item.get('id') not in anchors):
+            continue
+        source = {key: item.get(key) for key in ('id', 'evidence_id', 'title', 'url', 'doi', 'year', 'source')}
+        meta = item.get('meta') or {}
+        source['doi'] = source['doi'] or meta.get('doi') or (meta.get('externalIds') or {}).get('DOI')
+        if source['doi']:
+            source['url'] = 'https://doi.org/' + source['doi']
+        sources.append(source)
     missing = [{key: item.get(key) for key in ('evidence_id', 'title', 'url', 'expected_pdf_filename', 'reason')} for item in context.get('manual_pdf_requests', []) if isinstance(item, dict)]
     validation = context.get('protocol_validation_result') or {}
     notes = [str(issue) for issue in validation.get('issues', []) if isinstance(issue, str)]
@@ -32,8 +45,16 @@ def summarize(status):
         state = 'review_required' if markdown else 'failed'
     elif state not in ('failed', 'cancelled'):
         state = 'interrupted'
+    if state != 'awaiting_papers':
+        missing = []
+    integrity = None
+    if validation and 'approved' in validation:
+        integrity = {'passed': bool(validation['approved']),
+                     'step_count': (validation.get('metrics') or {}).get('total_steps'),
+                     'issue_count': len(validation.get('issues') or [])}
     return {'state': state, 'stage': status.get('state'), 'markdown': markdown,
             'sources': sources, 'missing_papers': missing,
+            'integrity_check': integrity,
             'review_notes': notes,
             'message': 'The run stopped before a draft was completed. Check the private server log.' if state in ('failed', 'interrupted') else ''}
 
@@ -44,9 +65,13 @@ async def run(directory):
     from biomars.mas.agents.Biologist.ProtocolGeneration.protocol_schemas import ProtocolRequest
 
     request = json.loads(Path('request.json').read_text())
+    model = request.pop('model', default_model())
+    if model not in MODEL_IDS:
+        raise ValueError('Unsupported model')
     config = yaml.safe_load((ROOT / 'config/protocol/protocol_config.yaml').read_text())
-    if os.getenv('OPENROUTER_MODEL'):
-        config['models']['openrouter']['model_name'] = os.environ['OPENROUTER_MODEL']
+    config['models']['openrouter']['model_name'] = model
+    # Some inherited tools use the environment rather than the model object.
+    os.environ['OPENROUTER_MODEL'] = model
     config['memory']['file_dir'] = str(Path('var/results').resolve())
     interface = InternAgentInterface(config=config, task_name='AutoProtocol', task_type='protocol_generation')
     required = set(config['agents'])
@@ -69,6 +94,7 @@ async def run(directory):
             write_json(session_file, {'id': session_id})
         status = await interface.run_session(session_id, status_callback=progress)
         result = summarize(status)
+        result['model'] = model
         if result['markdown']:
             Path('protocol.md').write_text(result['markdown'], encoding='utf-8')
         write_json('status.json', result)

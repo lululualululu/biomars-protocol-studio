@@ -56,3 +56,24 @@ def test_missing_full_text_is_an_actionable_pause():
 
 def test_completed_without_draft_is_not_success():
     assert summarize({'state':'completed','context':{}})['state']=='failed'
+
+
+def test_public_sources_are_selected_anchors_not_all_candidates():
+    result = summarize({'state': 'completed', 'context': {
+        'final_protocol_markdown': '# Synthetic draft',
+        'primary_anchor_id': 'used',
+        'evidence_bundle': {'anchor_ids': ['used'], 'items': [
+            {'id': 'used', 'title': 'Used source', 'meta': {'doi': '10.1234/test', 'local_path': 'private'}},
+            {'id': 'rejected', 'title': 'Unrelated retrieval candidate'}]}}})
+    assert len(result['sources']) == 1
+    assert result['sources'][0]['url'] == 'https://doi.org/10.1234/test'
+    assert 'private' not in str(result)
+
+
+def test_completed_resume_clears_resolved_paper_request():
+    result = summarize({'state': 'completed', 'context': {
+        'final_protocol_markdown': '# Synthetic draft',
+        'manual_pdf_requests': [{'title': 'Already uploaded', 'expected_pdf_filename': 'source.pdf'}],
+        'protocol_validation_result': {'approved': True, 'issues': [], 'metrics': {'total_steps': 3}}}})
+    assert result['missing_papers'] == []
+    assert result['integrity_check'] == {'passed': True, 'step_count': 3, 'issue_count': 0}

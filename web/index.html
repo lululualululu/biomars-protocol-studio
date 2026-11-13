@@ -1,28 +1,74 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f6f0">
-  <meta name="description" content="BioMars Protocol Studio — turn experimental questions into structured protocol drafts, with sources kept close.">
-  <title>BioMars Protocol Studio</title>
-  <link rel="icon" href="./mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./app.js"></script>
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="header">
-    <a class="brand" href="#" aria-label="BioMars Protocol Studio home"><img src="./mark.svg" width="34" height="34" alt=""><span>BioMars <span class="brand-sub">Protocol Studio</span></span></a>
-    <nav aria-label="Main navigation">
-      <button class="text-button" id="how-button">How it works</button>
-      <a class="github-link" href="https://github.com/lululualululu/biomars-protocol-studio" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
-      <span class="nav-divider"></span><button class="language text-button" id="language" aria-label="切换为中文">中文</button>
-    </nav>
-  </header>
-  <main id="main" tabindex="-1"></main>
-  <footer><span>BioMars Protocol Studio <span class="footer-dot">·</span> Open science, thoughtfully built.</span><div><span class="open-dot"></span><span>Open source · MIT</span><button id="settings-button" class="text-button">Service settings</button></div></footer>
-  <dialog id="dialog"><div id="dialog-content"></div><button class="dialog-close" aria-label="Close dialog">×</button></dialog>
-  <div id="toast" role="status" aria-live="polite"></div>
-</body>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#edf1fa" />
+    <meta
+      name="description"
+      content="BioMars Protocol Studio — turn experimental questions into structured protocol drafts, with sources kept close."
+    />
+    <title>BioMars Protocol Studio</title>
+    <link rel="icon" href="./assets/favicon-glass-v5.png" type="image/png" />
+    <link rel="stylesheet" href="./studio.css" />
+    <link rel="stylesheet" href="./glass.css?v=5" />
+    <script type="module" src="./app.js?v=5"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="header">
+      <a class="brand" href="#" aria-label="BioMars Protocol Studio home"
+        ><img src="./assets/brand-glass-v5.png" width="34" height="34" alt="" /><span
+          >BioMars<span class="brand-sub">Protocol Studio</span></span
+        ></a
+      >
+      <nav aria-label="Main navigation">
+        <a class="nav-item" id="nav-new" href="#">新建实验</a>
+        <a class="nav-item" id="nav-examples" href="#examples">案例</a>
+        <a class="nav-item" id="nav-library" href="#library">我的 Protocol</a>
+        <span class="nav-divider"></span
+        ><button
+          class="language text-button"
+          id="language"
+          aria-label="Switch to English"
+        >
+          EN
+        </button>
+        <a
+          class="settings-link"
+          href="#settings/general"
+          id="nav-settings"
+          aria-label="设置"
+          ><svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <path d="M4 7h5m4 0h7M4 17h9m4 0h3M9 4v6m4 4v6" /></svg
+        ></a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1"></main>
+    <footer>
+      <span>BioMars <span class="footer-dot">/</span> Protocol Studio</span>
+      <div>
+        <button class="text-button" id="how-button">使用说明</button
+        ><a
+          href="https://github.com/lululualululu/biomars-protocol-studio"
+          target="_blank"
+          rel="noopener"
+          >GitHub ↗</a
+        ><span class="footer-license">MIT</span>
+      </div>
+    </footer>
+    <dialog id="dialog">
+      <div id="dialog-content"></div>
+      <button class="dialog-close" aria-label="Close dialog">×</button>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </body>
 </html>

@@ -1,0 +1,31 @@
+{
+  "id": "V2-27",
+  "title_zh": "流式细胞凋亡检测",
+  "title_en": "Flow-cytometric apoptosis assay",
+  "category": "assays",
+  "query": "Annexin V and propidium iodide flow-cytometric quantification of apoptosis in cultured cells",
+  "model": "qwen/qwen3.6-flash",
+  "doi": "10.21769/BIOPROTOC.374",
+  "title": "Protocol for Apoptosis Assay by Flow Cytometry Using Annexin V Staining Method",
+  "state": "example",
+  "historical": true,
+  "markdown": "## Protocol: Annexin V and propidium iodide flow-cytometric quantification of apoptosis in cultured cells\n\n### Overview\n\nThis protocol outlines the procedure for quantifying apoptosis in cultured cells using Annexin V and propidium iodide (PI) via flow cytometry. The method involves seeding cells, incubating for 48 hours, harvesting both floating and adherent cells, staining with specific fluorochromes, and analyzing cell viability based on fluorescence profiles.\n\n### Materials/Reagents\n\nPhosphate-buffered saline (PBS), Trypsin, Incubation buffer, Annexin V (1 mg/ml stock), Propidium iodide (1 mg/ml stock).\n\n### Equipment\n\nT25 culture flasks, Flow cytometer, Centrifuge, Pipettes, Tubes for cell collection.\n\n### Safety & Sterility\n\nMaintain sterile technique during cell handling. Use appropriate personal protective equipment when handling chemicals such as trypsin and propidium iodide.\n\n## Cell Culture and Harvest\n\n### Day 0\n\n1. Seed 1 x 10^6 cells into a T25 culture flask. Perform this step in triplicate for experimental groups. [1] <!-- protocol-step:B01-T0-S01 -->\n2. Prepare three additional T25 culture flasks for control groups: one for unstained controls, one for Annexin V only controls, and one for propidium iodide only controls. [1] <!-- protocol-step:B01-T0-S02 -->\n\n### After 48 h incubation\n\n1. After 48 hours of incubation, collect the supernatant containing floating apoptotic cells from each flask. [1] <!-- protocol-step:B01-T1-S01 -->\n2. Trypsinize the adherent cells from each T25 flask to obtain approximately 2 x 10^6 cells per flask. [1] <!-- protocol-step:B01-T1-S02 -->\n3. Combine the collected floating cells and the trypsinized adherent cells from respective flasks to create six distinct cell samples (tubes). [1] <!-- protocol-step:B01-T1-S03 -->\n\n### Washing Phase\n\n1. Wash the collected cell pellets twice with PBS. [1] <!-- protocol-step:B01-T2-S01 -->\n2. Centrifuge the washed cells at 670 x g for 5 minutes at room temperature (RT) after each wash. [1] <!-- protocol-step:B01-T2-S02 -->\n\n### Staining Preparation\n\n1. Re-suspend each resulting cell pellet (containing ~2 x 10^6 cells) in 400 μl of PBS. [1] <!-- protocol-step:B01-T3-S01 -->\n\n#### Branch A: Experimental Cells\n\n1. For experimental cells (triplicates): Add 100 μl of incubation buffer containing 2 μl of Annexin V (1 mg/ml) and 2 μl of propidium iodide (1 mg/ml) to the 400 μl cell suspension. [1] <!-- protocol-step:B01-T3-S02 -->\n\n#### Branch B: Control Cells\n\n1. For Control 1 (unstained): Mix 400 μl of cell suspension with 100 μl of incubation buffer without adding any stains. [1] <!-- protocol-step:B01-T3-S03 -->\n2. For Control 2 (Annexin V only): Mix 400 μl of cell suspension with 100 μl of incubation buffer containing 2 μl of Annexin V (1 mg/ml). [1] <!-- protocol-step:B01-T3-S04 -->\n3. For Control 3 (propidium iodide only): Mix 400 μl of cell suspension with 100 μl of incubation buffer containing 2 μl of propidium iodide (1 mg/ml). [1] <!-- protocol-step:B01-T3-S05 -->\n\n### Flow Cytometry Analysis\n\n1. Analyze all stained and control samples immediately using flow cytometry without washing the cells prior to analysis. [1] <!-- protocol-step:B01-T4-S01 -->\n2. Interpret results as follows: Cells negative for both PI and Annexin V are healthy; cells negative for PI but positive for Annexin V are apoptotic; cells positive for both PI and Annexin V are necrotic. [1] <!-- protocol-step:B01-T4-S02 -->\n\n## References\n\n- [1] Protocol for Apoptosis Assay by Flow Cytometry Using Annexin V Staining Method — https://www.semanticscholar.org/paper/61a101c98a616eb9293488e5c537c8b82d34e6ca\n",
+  "review_notes": [
+    "Historical model-generated draft. Review the source and applicability before use.",
+    "Recorded source match: 明确匹配"
+  ],
+  "sources": [
+    {
+      "title": "Protocol for Apoptosis Assay by Flow Cytometry Using Annexin V Staining Method",
+      "doi": "10.21769/BIOPROTOC.374",
+      "url": "https://doi.org/10.21769/BIOPROTOC.374",
+      "source": "Primary reference · 原始案例主文献"
+    }
+  ],
+  "provenance": {
+    "dataset": "50题本地原文Query修订版_20261027",
+    "date": "2026-10-27",
+    "protocol_sha256": "1f1eeed342180e6b55c336a21567992aa3ef020c4bebab9cb4d7b4d42f2393ca",
+    "match_status": "明确匹配"
+  }
+}

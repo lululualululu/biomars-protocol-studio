@@ -2,6 +2,7 @@
 import asyncio
 import contextlib
 import hashlib
+import ipaddress
 import json
 import os
 import re
@@ -18,9 +19,10 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, ConfigDict, Field, ValidationError
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator
 
 from studio.storage import Store, write_json
+from studio.models import MODELS, MODEL_IDS, default_model
 
 ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(ROOT / '.env', override=False)
@@ -61,9 +63,17 @@ class BodyLimit:
 class GenerationRequest(BaseModel):
     model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
     query: str = Field(min_length=12, max_length=6000)
+    model: str = Field(default_factory=default_model)
     cell_line: str | None = Field(default=None, max_length=120)
     species: str | None = Field(default=None, max_length=120)
     scope: str = Field(default='full_protocol', max_length=500)
+
+    @field_validator('model')
+    @classmethod
+    def supported_model(cls, value):
+        if value not in MODEL_IDS:
+            raise ValueError('Choose a supported model.')
+        return value
 
 
 def terminate(process):
@@ -141,6 +151,15 @@ def create_app(data_dir=None, run_queue=True):
 
     @app.middleware('http')
     async def browser_boundary(request, call_next):
+        if os.getenv('STUDIO_LOCAL_MODE') == '1':
+            # Check both the socket peer and Host; loopback binding alone does
+            # not prevent a browser from reaching us through DNS rebinding.
+            try:
+                local_peer = ipaddress.ip_address(request.client.host).is_loopback
+            except (ValueError, AttributeError):
+                local_peer = False
+            if not local_peer or request.url.hostname not in ('localhost', '127.0.0.1', '::1'):
+                return JSONResponse({'detail': 'Local mode accepts loopback connections only.'}, status_code=403)
         if request.method not in ('GET', 'HEAD', 'OPTIONS'):
             origin = request.headers.get('origin')
             if origin and (urlsplit(origin).scheme not in ('http', 'https') or urlsplit(origin).netloc != request.headers.get('host')):
@@ -172,8 +191,12 @@ def create_app(data_dir=None, run_queue=True):
 
     def authorize(request):
         token = os.getenv('STUDIO_ACCESS_TOKEN', '')
-        if not os.getenv('OPENROUTER_API_KEY') or not token:
+        local_mode = os.getenv('STUDIO_LOCAL_MODE') == '1'
+        public_mode = os.getenv('STUDIO_PUBLIC_MODE') == '1'
+        if not os.getenv('OPENROUTER_API_KEY') or (not local_mode and not public_mode and not token):
             raise HTTPException(503, 'Real generation is not configured. Explore the example, or configure the Python service.')
+        if local_mode or public_mode:
+            return
         supplied = request.headers.get('authorization', '').removeprefix('Bearer ')
         if not secrets.compare_digest(supplied, token):
             raise HTTPException(401, 'Enter the service access code in settings to generate.')
@@ -186,12 +209,17 @@ def create_app(data_dir=None, run_queue=True):
 
     def public(job, detail=False):
         result = {k: job[k] for k in ('id', 'title', 'state', 'created', 'updated')}
+        payload_path = store.root / job['id'] / 'request.json'
+        if payload_path.exists():
+            with contextlib.suppress(ValueError):
+                payload = json.loads(payload_path.read_text())
+                result['model'] = payload.get('model', default_model())
         if detail:
             path = store.root / job['id'] / 'status.json'
             if path.exists():
                 with contextlib.suppress(ValueError):
                     status = json.loads(path.read_text())
-                    result.update({k: v for k, v in status.items() if k in ('stage', 'markdown', 'sources', 'missing_papers', 'review_notes', 'message')})
+                    result.update({k: v for k, v in status.items() if k in ('stage', 'markdown', 'sources', 'missing_papers', 'review_notes', 'message', 'integrity_check')})
         return result
 
     async def save_files(files, directory, papers=False, expected=None):
@@ -239,7 +267,13 @@ def create_app(data_dir=None, run_queue=True):
 
     @app.get('/api/config')
     async def config():
-        return {'name': 'BioMars Protocol Studio', 'generation_available': bool(os.getenv('OPENROUTER_API_KEY') and os.getenv('STUDIO_ACCESS_TOKEN')), 'access_code_required': True, 'max_file_mb': 10}
+        local_mode = os.getenv('STUDIO_LOCAL_MODE') == '1'
+        public_mode = os.getenv('STUDIO_PUBLIC_MODE') == '1'
+        return {'name': 'BioMars Protocol Studio', 'generation_available': bool(os.getenv('OPENROUTER_API_KEY') and (local_mode or public_mode or os.getenv('STUDIO_ACCESS_TOKEN'))), 'access_code_required': not (local_mode or public_mode), 'max_file_mb': 10, 'models': MODELS, 'default_model': default_model()}
+
+    @app.get('/site-config.json')
+    async def site_config():
+        return {'api': True}
 
     @app.get('/api/jobs')
     async def jobs(request: Request):

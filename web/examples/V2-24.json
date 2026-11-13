@@ -1,0 +1,31 @@
+{
+  "id": "V2-24",
+  "title_zh": "活细胞钙成像",
+  "title_en": "Live-cell calcium imaging",
+  "category": "imaging",
+  "query": "Live-cell calcium imaging of adherent mammalian cells using Fluo-4 AM",
+  "model": "qwen/qwen3.6-flash",
+  "doi": "10.1007/7651_2020_329",
+  "title": "Multiple Imaging Modalities for Cell-Cell Communication via Calcium Mobilizations in Corneal Epithelial Cells",
+  "state": "example",
+  "historical": true,
+  "markdown": "## Protocol: Live-cell calcium imaging of adherent mammalian cells using Fluo-4 AM\n\n### Overview\n\nThis protocol outlines the procedure for live-cell calcium imaging of adherent mammalian cells using Fluo-4 AM. It covers the preparation of glass substrates and reagents, cell culture and dye loading, microscope configuration, and image acquisition parameters.\n\n### Materials/Reagents\n\n3-(trimethoxysilyl)propyl methacrylate (silane), 100% Ethanol, MAT-TEK cover glass bottom wells, Polyethylene glycol, Igracure 2959 photoinitiator (2-hydroxy-4'-(2-hydroxyethoxy)-2-methylpropipheone), Water, Fluo-3 AM or Fluo-4 AM or Cal-520 AM (Invitrogen, Carlsbad, CA), DMSO, Pluronic acid, Culture media.\n\n### Equipment\n\nMAT-TEK glass bottom dishes, Tissue culture dishes of different stiffnesses, Harvard Apparatus (for flow-through experiments), Microscope (Confocal, SIM, or Spinning Disk; specifically Zeiss Axiovert LSM 880 confocal microscope with FAST module and AIRYScan capability), Environmental chamber.\n\n### Safety & Sterility\n\nMaintain sterile conditions during cell culture and reagent preparation. Ensure proper handling of ethanol and chemical reagents. Maintain environmental control at 37°C and 5% CO2 during cell loading, and 35°C and 5% CO2 during imaging.\n\n## Reagent Preparation\n\n### Preparation Phase\n\n1. Treat the glass with a solution of 21mM silane by diluting 3-(trimethoxysilyl)propyl methacrylate into 100% Ethanol. [1] <!-- protocol-step:B01-T0-S01 -->\n2. Prepare MAT-TEK cover glass bottom wells by cleaning them with 70% ethanol and allowing them to air dry. Rinse the cover glass twice, once with 70% ethanol and once with water, and allow the cover slips to air dry at room temperature. [1] <!-- protocol-step:B01-T0-S02 -->\n3. Prepare the polyethylene glycol solution by diluting 15% polyethylene glycol with 0.10% Igracure 2959 photoinitiator (2-hydroxy-4'-(2-hydroxyethoxy)-2-methylpropipheone) in water. [1] <!-- protocol-step:B01-T0-S03 -->\n\n## In Vitro Cell Preparation\n\n### Cell Culture and Loading\n\n1. Culture cells to the desired density for the experiment on MAT-TEK glass bottom dishes or on tissue culture dishes of different stiffnesses. For flow-through experiments, use a Harvard Apparatus to perfuse fluids. [1] <!-- protocol-step:B02-T0-S01 -->\n2. Pre-load cells with 5 μM Fluo-3, 4 AM or 5 μM Cal-520 AM (Invitrogen,Manuscript Carlsbad, CA), at a final concentration of 1% (v/v) DMSO and 0.02% (w/v) pluronic acid for 30 minutes at 37°C and 5% CO2 - [1] <!-- protocol-step:B02-T0-S02 -->\n3. Wash away excess dye and place the cells on the stage of the microscope in an environmental chamber set to 35°C and 5% CO2. [1] <!-- protocol-step:B02-T0-S03 -->\n\n## Imaging\n\n### Microscope Configuration\n\n1. Set filters for imaging on the instrument of choice. All specified dyes work on confocals, SIM, or spinning disks. Configure for Fluo-3 AM and Fluo-4 AM with maximal excitation of 506 nm and maximal emission of 526 nm. Configure for Cal-520 AM with maximal excitation of 492 nm and maximal emission of 514 nm. If using SiR-Actin, configure for maximal excitation of 652 nm and emission of 674 nm. If using FarRed CellMask, configure for maximal excitation of 650 nm and emission of 670 nm. [1] <!-- protocol-step:B04-T0-S01 -->\n\n### Image Acquisition\n\n1. Collect images at the speed required for your experiment, considering scan speed, imaging duration, and computer memory. Using a Zeiss Axiovert LSM 880 confocal microscope, collect at 3fps for periods up to 4 hours. Faster scan times are achieved with the FAST module, and higher resolution is achieved with AIRYScan. [1] <!-- protocol-step:B04-T1-S01 -->\n2. Establish baseline values in either control tissue or in cells before stimulation. Collect 100-200 frames of baseline activity so that they represent the population and can be averaged during analysis. [1] <!-- protocol-step:B04-T1-S02 -->\n3. Image continually after establishing baseline values. Note that AIRYScan increases the resolution and overall image quality compared to traditional confocal microscopy. [1] <!-- protocol-step:B04-T1-S03 -->\n4. Save files as LSM format and export as AVI for analysis. Movies are available for viewing on GitHub. [1] <!-- protocol-step:B04-T1-S04 -->\n\n## References\n\n- [1] Multiple Imaging Modalities for Cell-Cell Communication via Calcium Mobilizations in Corneal Epithelial Cells — https://doi.org/10.1007/7651_2020_329\n",
+  "review_notes": [
+    "Historical model-generated draft. Review the source and applicability before use.",
+    "Recorded source match: 明确匹配"
+  ],
+  "sources": [
+    {
+      "title": "Multiple Imaging Modalities for Cell-Cell Communication via Calcium Mobilizations in Corneal Epithelial Cells",
+      "doi": "10.1007/7651_2020_329",
+      "url": "https://doi.org/10.1007/7651_2020_329",
+      "source": "Primary reference · 原始案例主文献"
+    }
+  ],
+  "provenance": {
+    "dataset": "50题本地原文Query修订版_20261027",
+    "date": "2026-10-27",
+    "protocol_sha256": "95b5af420e16a4a0ca0478c87f60141813b8afe2cca147fe3a931116ad88d203",
+    "match_status": "明确匹配"
+  }
+}

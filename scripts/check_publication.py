@@ -8,7 +8,7 @@ PATTERNS = [r'\bsk-(?:or-v1-)?[A-Za-z0-9_-]{24,}', r'\bgh[pousr]_[A-Za-z0-9]{30,
 
 
 def check():
-    result = subprocess.run(['git', 'ls-files', '-z', '--cached'], cwd=ROOT, capture_output=True, check=True)
+    result = subprocess.run(['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=ROOT, capture_output=True, check=True)
     paths = [Path(p) for p in result.stdout.decode().split('\0') if p]
     failures = []
     for path in paths:
@@ -29,7 +29,7 @@ def check():
             failures.append(f'{path}: machine-specific home path')
     if failures:
         raise SystemExit('\n'.join(failures))
-    print(f'Checked {len(paths)} tracked files: no obvious secrets or private runtime artifacts.')
+    print(f'Checked {len(paths)} tracked and non-ignored files: no obvious secrets or private runtime artifacts.')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,462 @@
+{
+  "count": 50,
+  "featured": [
+    "O07",
+    "O02",
+    "O01"
+  ],
+  "model": "qwen/qwen3.6-flash",
+  "date": "2026-10-27",
+  "cases": [
+    {
+      "id": "O01",
+      "title_zh": "肾脏类器官",
+      "title_en": "Kidney organoids",
+      "category": "organoids",
+      "query": "Generation of kidney organoids from human pluripotent stem cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1038/nprot.2016.170"
+    },
+    {
+      "id": "O02",
+      "title_zh": "迭代免疫荧光",
+      "title_en": "Iterative immunofluorescence",
+      "category": "imaging",
+      "query": "Iterative Indirect Immunofluorescence Imaging (4i) on Adherent Cells and Tissue Sections",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.21769/BioProtoc.4712"
+    },
+    {
+      "id": "O03",
+      "title_zh": "中性粒细胞分离",
+      "title_en": "Neutrophil isolation",
+      "category": "cells",
+      "query": "Protocol for density gradient neutrophil isolation and flow cytometry-based characterization from human peripheral blood",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.xpro.2023.102497"
+    },
+    {
+      "id": "O04",
+      "title_zh": "巨噬细胞极化",
+      "title_en": "Macrophage polarization",
+      "category": "cells",
+      "query": "Protocol to drive human monocyte-to-macrophage polarization in vitro using tumor conditioned media",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.xpro.2022.101666"
+    },
+    {
+      "id": "O05",
+      "title_zh": "皮层类器官",
+      "title_en": "Cortical organoids",
+      "category": "organoids",
+      "query": "Protocol for human cortical organoid generation from pluripotent stem cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1002/cpz1.641"
+    },
+    {
+      "id": "O06",
+      "title_zh": "滋养层类器官",
+      "title_en": "Trophoblast organoids",
+      "category": "organoids",
+      "query": "Protocol for generation and culture of human trophoblast organoids",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1038/s41596-020-0381-x"
+    },
+    {
+      "id": "O07",
+      "title_zh": "细胞迁移划痕实验",
+      "title_en": "Cell migration scratch assay",
+      "category": "assays",
+      "query": "Optimized Scratch Assay for In Vitro Testing of Cell Migration with an Automated Optical Camera",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.3791/57691"
+    },
+    {
+      "id": "O08",
+      "title_zh": "患者来源肿瘤类器官",
+      "title_en": "Patient-derived tumor organoids",
+      "category": "organoids",
+      "query": "Protocol for establishment and expansion of patient-derived tumor organoids",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1007/978-1-0716-3730-2_9"
+    },
+    {
+      "id": "O09",
+      "title_zh": "气道类器官",
+      "title_en": "Airway organoids",
+      "category": "organoids",
+      "query": "Protocol for culture of human airway organoids from adult stem cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.3791/63684"
+    },
+    {
+      "id": "O10",
+      "title_zh": "视网膜细胞分化",
+      "title_en": "Retinal differentiation",
+      "category": "cells",
+      "query": "Retinal Differentiation of Mouse Embryonic Stem Cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": null
+    },
+    {
+      "id": "V2-01",
+      "title_zh": "iPSC 小胶质细胞分化",
+      "title_en": "iPSC-derived microglia",
+      "category": "cells",
+      "query": "I need to obtain microglia-like cells from human iPSCs for an in vitro cell-culture study. Describe a workflow starting with iPSC maintenance, proceeding through hematopoietic induction and progenitor isolation, and ending with microglial differentiation. Include the culture transitions, cell-handling steps and collection points needed to follow this route.",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.17504/protocols.io.bkrvkv66"
+    },
+    {
+      "id": "V2-02",
+      "title_zh": "红细胞分化",
+      "title_en": "Erythroid differentiation",
+      "category": "cells",
+      "query": "Stepwise generation of erythroid progenitors and enucleated red blood cells from human pluripotent stem cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1101/616748"
+    },
+    {
+      "id": "V2-03",
+      "title_zh": "骨骼肌祖细胞分化",
+      "title_en": "Skeletal myogenic progenitors",
+      "category": "cells",
+      "query": "Protocol for deriving expandable skeletal myogenic progenitors and multinucleated myotubes from human pluripotent stem cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1038/nprot.2015.057"
+    },
+    {
+      "id": "V2-04",
+      "title_zh": "外周感觉神经元",
+      "title_en": "Peripheral sensory neurons",
+      "category": "cells",
+      "query": "Chemically defined differentiation of human pluripotent stem cells into peripheral sensory neurons and nociceptors",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.stemcr.2021.01.001"
+    },
+    {
+      "id": "V2-05",
+      "title_zh": "心外膜细胞分化",
+      "title_en": "Epicardial differentiation",
+      "category": "cells",
+      "query": "WNT-modulated differentiation of human pluripotent stem cells into epicardial cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1038/nprot.2017.080"
+    },
+    {
+      "id": "V2-06",
+      "title_zh": "子宫内膜类器官",
+      "title_en": "Endometrial organoids",
+      "category": "organoids",
+      "query": "I have a small biopsy of non-pregnant human endometrium and want to establish a reusable three-dimensional epithelial culture. Describe tissue processing, gland recovery, seeding in an extracellular matrix, routine feeding and serial passaging, and how to freeze and recover the resulting organoids. Focus on establishing and maintaining the culture.",
+      "model": "qwen/qwen3.6-flash",
+      "doi": null
+    },
+    {
+      "id": "V2-07",
+      "title_zh": "输卵管类器官",
+      "title_en": "Fallopian tube organoids",
+      "category": "organoids",
+      "query": "Establishment and long-term expansion of human fallopian tube epithelial organoids from surgical specimens",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.21769/BioProtoc.5412"
+    },
+    {
+      "id": "V2-08",
+      "title_zh": "乳腺类器官",
+      "title_en": "Mammary organoids",
+      "category": "organoids",
+      "query": "Protocol for isolating primary human mammary epithelial structures and generating normal mammary organoids",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1002/cpcb.65"
+    },
+    {
+      "id": "V2-09",
+      "title_zh": "尿液来源肾小管类器官",
+      "title_en": "Urine-derived tubuloids",
+      "category": "organoids",
+      "query": "I want to build an expandable renal epithelial organoid culture from a freshly collected human urine sample, without using a kidney tissue biopsy. Describe sample processing, initial three-dimensional culture, routine maintenance and repeated passaging. Include the culture-handling steps needed to preserve the urine-derived tubuloid line.",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.3791/62404"
+    },
+    {
+      "id": "V2-10",
+      "title_zh": "成人肝脏类器官",
+      "title_en": "Adult liver organoids",
+      "category": "organoids",
+      "query": "Protocol for culture and establishment of self-renewing human adult liver organoids from liver tissue and their genetic manipulation",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1038/nprot.2016.097"
+    },
+    {
+      "id": "V2-11",
+      "title_zh": "小鼠原代肝细胞",
+      "title_en": "Primary mouse hepatocytes",
+      "category": "cells",
+      "query": "Protocol for isolation and short-term culture of primary mouse hepatocytes using two-step collagenase perfusion",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1002/fpf2.70029"
+    },
+    {
+      "id": "V2-12",
+      "title_zh": "小鼠胰岛分离",
+      "title_en": "Mouse islet isolation",
+      "category": "cells",
+      "query": "High-yield isolation of pancreatic islets from adult mice using collagenase digestion and density-gradient purification",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.3791/57048"
+    },
+    {
+      "id": "V2-13",
+      "title_zh": "成年小鼠心肌细胞",
+      "title_en": "Adult mouse cardiomyocytes",
+      "category": "cells",
+      "query": "Langendorff-free isolation and calcium-tolerant culture of adult mouse cardiomyocytes",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1161/CIRCRESAHA.116.309202"
+    },
+    {
+      "id": "V2-14",
+      "title_zh": "骨骼肌卫星细胞",
+      "title_en": "Skeletal muscle satellite cells",
+      "category": "cells",
+      "query": "Isolation of mouse skeletal muscle satellite cells by enzymatic digestion and fluorescence-activated cell sorting",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.xpro.2023.102656"
+    },
+    {
+      "id": "V2-15",
+      "title_zh": "间充质基质细胞培养",
+      "title_en": "Mesenchymal stromal cells",
+      "category": "cells",
+      "query": "I want to recover mesenchymal stromal cells from a human lipoaspirate sample without digesting the starting tissue with collagenase or another dissociation enzyme. Describe how to set up explant outgrowth cultures, collect adherent cells, and passage them for expansion. Enzymatic detachment during later passaging is acceptable.",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.3791/59419"
+    },
+    {
+      "id": "V2-16",
+      "title_zh": "嗜酸性粒细胞分离",
+      "title_en": "Eosinophil isolation",
+      "category": "cells",
+      "query": "Protocol for negative-selection isolation of untouched human eosinophils from peripheral blood",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1002/0471142735.im0731s98"
+    },
+    {
+      "id": "V2-17",
+      "title_zh": "肿瘤浸润淋巴细胞初代培养",
+      "title_en": "Primary infiltrating lymphocytes",
+      "category": "cells",
+      "query": "I have fresh pediatric solid-tumor samples and bone-marrow samples and need to establish the first cultures of tumor-infiltrating and marrow-infiltrating lymphocytes. Describe how to process the two sample types separately, maintain and expand the initial cultures, and collect cells for viability and basic phenotype checks. Limit this workflow to the primary-culture stage.",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.jcyt.2024.08.002"
+    },
+    {
+      "id": "V2-18",
+      "title_zh": "调节性 T 细胞诱导",
+      "title_en": "Regulatory T-cell induction",
+      "category": "cells",
+      "query": "In vitro induction of regulatory T cells from naïve human CD4-positive T cells using TGF-beta and interleukin-2",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.3791/55015"
+    },
+    {
+      "id": "V2-19",
+      "title_zh": "Th17 细胞分化",
+      "title_en": "Th17 differentiation",
+      "category": "cells",
+      "query": "In vitro differentiation of murine naïve CD4-positive T cells into Th17 cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.21769/bioprotoc.4029"
+    },
+    {
+      "id": "V2-20",
+      "title_zh": "星形胶质细胞分化",
+      "title_en": "Astroglial differentiation",
+      "category": "cells",
+      "query": "Protocol for directed differentiation and long-term maintenance of functional astroglial subtypes from human pluripotent stem cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1038/nprot.2011.405"
+    },
+    {
+      "id": "V2-21",
+      "title_zh": "膨胀显微与 FISH",
+      "title_en": "Expansion microscopy & FISH",
+      "category": "imaging",
+      "query": "A 2018 Current Protocols in Cell Biology workflow covering protein-retention expansion microscopy and expansion FISH, with AcX and LabelX anchoring, approximately 4.5-fold hydrogel expansion, and confocal or light-sheet imaging of cells and tissues",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1002/cpcb.56"
+    },
+    {
+      "id": "V2-22",
+      "title_zh": "全脑透明化成像",
+      "title_en": "Whole-brain clearing & imaging",
+      "category": "imaging",
+      "query": "Protocol for whole-tissue immunolabeling, optical clearing, and lightsheet imaging of c-Fos protein expression in unsectioned mouse brains",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.xpro.2025.103868"
+    },
+    {
+      "id": "V2-23",
+      "title_zh": "单分子 RNA FISH",
+      "title_en": "Single-molecule RNA FISH",
+      "category": "imaging",
+      "query": "Single-molecule fluorescence in situ hybridization for quantifying RNA transcripts in adherent mammalian cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.21769/BIOPROTOC.3070"
+    },
+    {
+      "id": "V2-24",
+      "title_zh": "活细胞钙成像",
+      "title_en": "Live-cell calcium imaging",
+      "category": "imaging",
+      "query": "Live-cell calcium imaging of adherent mammalian cells using Fluo-4 AM",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1007/7651_2020_329"
+    },
+    {
+      "id": "V2-25",
+      "title_zh": "原位邻近连接检测",
+      "title_en": "In situ proximity ligation",
+      "category": "assays",
+      "query": "In situ proximity ligation assay for detecting endogenous protein-protein interactions in fixed cultured cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1002/cpcb.115"
+    },
+    {
+      "id": "V2-26",
+      "title_zh": "线粒体压力测试",
+      "title_en": "Mitochondrial stress test",
+      "category": "assays",
+      "query": "Seahorse extracellular flux mitochondrial stress test in adherent mammalian cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.xpro.2020.100245"
+    },
+    {
+      "id": "V2-27",
+      "title_zh": "流式细胞凋亡检测",
+      "title_en": "Flow-cytometric apoptosis assay",
+      "category": "assays",
+      "query": "Annexin V and propidium iodide flow-cytometric quantification of apoptosis in cultured cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.21769/BIOPROTOC.374"
+    },
+    {
+      "id": "V2-28",
+      "title_zh": "细胞内活性氧检测",
+      "title_en": "Intracellular ROS imaging",
+      "category": "imaging",
+      "query": "Protocol for detection and quantification of nanoparticle-induced intracellular reactive oxygen species in live cells by laser-scanning confocal microscopy",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.ymeth.2022.08.005"
+    },
+    {
+      "id": "V2-29",
+      "title_zh": "斑马鱼脑细胞核分离",
+      "title_en": "Zebrafish brain nuclei isolation",
+      "category": "cells",
+      "query": "Protocol for detergent- and enzyme-free isolation of intact nuclei from whole zebrafish brain tissue for single-nucleus analysis",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.3791/61471"
+    },
+    {
+      "id": "V2-30",
+      "title_zh": "巨噬细胞胞葬检测",
+      "title_en": "Macrophage efferocytosis",
+      "category": "assays",
+      "query": "Flow-cytometric quantification of macrophage efferocytosis using fluorescently labeled apoptotic cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.xpro.2024.103215"
+    },
+    {
+      "id": "V2-31",
+      "title_zh": "iPSC CRISPR 编辑",
+      "title_en": "iPSC CRISPR editing",
+      "category": "engineering",
+      "query": "The 2022 Caillaud, Leveque, and Si-Tayeb STAR Protocols workflow for CRISPR-Cas9 RNP editing of human iPSCs with FACS single-cell sorting, including GPR146 deletion and IRX5 molecular-tag insertion examples, clonal culture, and genotyping",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.xpro.2022.101680"
+    },
+    {
+      "id": "V2-32",
+      "title_zh": "原代 T 细胞 CRISPR 编辑",
+      "title_en": "Primary T-cell CRISPR editing",
+      "category": "engineering",
+      "query": "CRISPR-Cas9 ribonucleoprotein knockout in primary human T cells by nucleofection",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1038/s41596-018-0069-7"
+    },
+    {
+      "id": "V2-33",
+      "title_zh": "原代 T 细胞标记转导",
+      "title_en": "Primary T-cell marker transduction",
+      "category": "engineering",
+      "query": "I have donor-derived human CD4-positive, CD45RA-positive T cells and a lentiviral vector carrying a detectable expression marker. I need a workflow to stimulate the cells, introduce the vector, maintain them after transduction, and use flow cytometry to quantify marker-positive cells. Focus on the primary T-cell experiment rather than making the vector stock.",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1186/1472-6750-13-98"
+    },
+    {
+      "id": "V2-34",
+      "title_zh": "iPSC PiggyBac 工程",
+      "title_en": "iPSC PiggyBac engineering",
+      "category": "engineering",
+      "query": "Nonviral genetic engineering of human pluripotent stem cells with a two-plasmid PiggyBac architecture: Lipofectamine-mediated cotransfection of a donor plasmid and a separate transposase plasmid followed by antibiotic selection of stable integrants; apply the platform to a doxycycline-controlled NGN2-BFP iPSC line, verify BFP-positive cells, select with 0.5 micrograms/mL puromycin, and cryopreserve before neuronal differentiation; require executable reagent amounts and timing, and exclude all-in-one PiggyBac vectors, CRISPR/AAVS1 targeting, viral delivery, and imaging-only studies",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "dx.doi.org/10.17504/protocols.io.e6nvwj54dlmk/v2"
+    },
+    {
+      "id": "V2-35",
+      "title_zh": "皮层类器官电转",
+      "title_en": "Cortical organoid electroporation",
+      "category": "engineering",
+      "query": "Plasmid reporter delivery into pluripotent stem cell-derived human cortical organoids by lumen microinjection followed by cuvette electroporation, with 24-hour fluorescence visualization and expression analysis in neural progenitors and their progeny",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.xpro.2022.101129"
+    },
+    {
+      "id": "V2-36",
+      "title_zh": "Caco-2 屏障完整性",
+      "title_en": "Caco-2 barrier integrity",
+      "category": "assays",
+      "query": "Assessment of Caco-2 epithelial barrier integrity in Transwell monolayers using TEER and FITC-dextran permeability",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.21769/BioProtoc.5673"
+    },
+    {
+      "id": "V2-37",
+      "title_zh": "悬滴法肿瘤球",
+      "title_en": "Hanging-drop tumor spheroids",
+      "category": "organoids",
+      "query": "Generation of uniform multicellular tumor spheroids using the hanging-drop method",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1007/978-1-59745-443-8_8"
+    },
+    {
+      "id": "V2-38",
+      "title_zh": "内皮细胞成管实验",
+      "title_en": "Endothelial tube formation",
+      "category": "assays",
+      "query": "Stepwise optimization of a Matrigel-based in vitro angiogenesis assay for reproducible and quantifiable 2D tube formation using human umbilical vein endothelial cells",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1007/7651_2026_709"
+    },
+    {
+      "id": "V2-39",
+      "title_zh": "T 细胞激活与扩增",
+      "title_en": "T-cell activation & expansion",
+      "category": "cells",
+      "query": "Activation and expansion of human T cells using artificial antigen-presenting cell scaffolds",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1038/s41596-019-0249-0"
+    },
+    {
+      "id": "V2-40",
+      "title_zh": "胰岛微囊化",
+      "title_en": "Islet microencapsulation",
+      "category": "assays",
+      "query": "Alginate microencapsulation of pancreatic islets followed by viability and glucose-stimulated insulin-secretion assessment",
+      "model": "qwen/qwen3.6-flash",
+      "doi": "10.1016/j.bbrc.2020.05.107"
+    }
+  ]
+}

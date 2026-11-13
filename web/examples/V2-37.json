@@ -1,0 +1,31 @@
+{
+  "id": "V2-37",
+  "title_zh": "悬滴法肿瘤球",
+  "title_en": "Hanging-drop tumor spheroids",
+  "category": "organoids",
+  "query": "Generation of uniform multicellular tumor spheroids using the hanging-drop method",
+  "model": "qwen/qwen3.6-flash",
+  "doi": "10.1007/978-1-59745-443-8_8",
+  "title": "Generation of multicellular tumor spheroids by the hanging-drop method.",
+  "state": "example",
+  "historical": true,
+  "markdown": "## Protocol: Generation of uniform multicellular tumor spheroids using the hanging-drop method\n\n### Overview\n\nThis protocol outlines the generation of uniform multicellular tumor spheroids (MCTS) using the hanging-drop method. It covers reagent preparation, cell dissociation and suspension, drop dispensing, incubation setup, and imaging procedures.\n\n### Materials/Reagents\n\n- Cell-culture medium\n- Cell dissociation solution (e.g., 0.25% trypsin/EDTA-4Na)\n- Phosphate-buffered saline (PBS) without Ca2+ or Mg2+\n- 4% paraformaldehyde (PFA) in PBS\n- 30% sucrose solution in PBS\n- Blocking buffer: 6% bovine serum albumin (BSA) + 0.1% Triton-X100 in PBS\n- Labeling buffer: 1% BSA + 0.1% Triton-X100 in PBS\n- 80% glycerol in PBS\n\n### Equipment\n\n- 60-well minitray\n- Multistep or multichannel pipette compatible with 60-well minitray configuration\n- Larger container (e.g., bioassay tray)\n- Small dish of water\n- Incubator\n- Imaging equipment capable of capturing inverted wells with good contrast\n\n### Safety & Sterility\n\n- Maintain sterile conditions during cell handling and reagent preparation.\n- Use appropriate personal protective equipment when handling chemicals such as PFA, trypsin, and Triton-X100.\n- Ensure proper disposal of biological waste and chemical solutions.\n\n## Reagent Preparation\n\n### Preparation\n\n1. Cell-culture medium (see note 1). [1] <!-- protocol-step:B01-T0-S01 -->\n2. Prepare a cell dissociation solution, for example, 0.25% trypsin/ethylenediaminetetraacetic acid (EDTA)-4Na. [1] <!-- protocol-step:B01-T0-S02 -->\n3. Prepare phosphate-buffered saline (PBS) without Ca2+ or Mg2+. [1] <!-- protocol-step:B01-T0-S03 -->\n4. Prepare 4% paraformaldehyde (PFA) in PBS. [1] <!-- protocol-step:B01-T0-S04 -->\n5. Prepare a 30% sucrose solution in PBS. [1] <!-- protocol-step:B01-T0-S05 -->\n6. Prepare blocking buffer consisting of 6% bovine serum albumin (BSA) and 0.1% Triton-X100 in PBS. [1] <!-- protocol-step:B01-T0-S06 -->\n7. Prepare labeling buffer consisting of 1% BSA and 0.1% Triton-X100 in PBS. [1] <!-- protocol-step:B01-T0-S07 -->\n8. Prepare 80% glycerol in PBS. [1] <!-- protocol-step:B01-T0-S08 -->\n\n## Hanging-Drop Culture Setup\n\n### Day 0\n\n1. Starting from a monolayer cell culture, dissociate the cells by rinsing with PBS followed by incubation with dissociation solution (e.g., trypsin/EDTA). [1] <!-- protocol-step:B02-T0-S01 -->\n2. Pellet the cells by centrifugation, discard the supernatant, resuspend the cells in a small volume of cell-culture medium to obtain a single-cell suspension, and enumerate by the preferred method (e.g., hemocytometer). [1] <!-- protocol-step:B02-T0-S02 -->\n3. Dilute the cell suspension with culture medium to obtain the desired cell density. [1] <!-- protocol-step:B02-T0-S03 -->\n4. Dispense 20 µl cell suspension into the wells of a 60-well minitray. The use of a multistep or multichannel pipette compatible with this plate configuration is recommended. [1] <!-- protocol-step:B02-T0-S04 -->\n5. Place a lid on the minitray and invert the entire minitray. [1] <!-- protocol-step:B02-T0-S05 -->\n6. Place the minitray inside a larger container along with a small dish of water (e.g., eight minitrays fit in a bioassay tray). Replace the lid on the larger container. [1] <!-- protocol-step:B02-T0-S06 -->\n> **Operational constraint:** If necessary, perforate the lid to permit gas exchange (e.g., air-tight plastic storage containers). [1] <!-- protocol-step:B02-T0-S07 -->\n\n### Cultivation Phase\n\n1. Place the inverted minitrays in an incubator for cultivation of MCTS. [1] <!-- protocol-step:B02-T1-S01 -->\n2. Feeding of fresh medium, when appropriate, is easily achieved by careful addition of a small volume to each drop. [1] <!-- protocol-step:B02-T1-S02 -->\n\n### Imaging Timepoints\n\n1. At the desired time points, retrieve cultures from the incubator, and maintaining them in the inverted position, image directly in the well, ensuring good contrast between the MCTS border and the background. [1] <!-- protocol-step:B02-T2-S01 -->\n> **Operational constraint:** When observing the cultures, maintain in an inverted position. Disturbance of the drops by turning the plates over will disrupt aggregation. [1] <!-- protocol-step:B02-T2-S02 -->\n\n## References\n\n- [1] Generation of multicellular tumor spheroids by the hanging-drop method. — https://doi.org/10.1007/978-1-59745-443-8_8\n",
+  "review_notes": [
+    "Historical model-generated draft. Review the source and applicability before use.",
+    "Recorded source match: 明确匹配"
+  ],
+  "sources": [
+    {
+      "title": "Generation of multicellular tumor spheroids by the hanging-drop method.",
+      "doi": "10.1007/978-1-59745-443-8_8",
+      "url": "https://doi.org/10.1007/978-1-59745-443-8_8",
+      "source": "Primary reference · 原始案例主文献"
+    }
+  ],
+  "provenance": {
+    "dataset": "50题本地原文Query修订版_20261027",
+    "date": "2026-10-27",
+    "protocol_sha256": "28c77c84bda74a18e1422046bda45cd97b924ee3bbacb0866dbe1d19c78b08fc",
+    "match_status": "明确匹配"
+  }
+}

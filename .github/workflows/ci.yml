@@ -15,6 +15,6 @@ jobs:
           node-version: '22'
       - run: pip install -e '.[dev]'
       - run: pytest -q
-      - run: node --test tests/markdown.test.mjs
+      - run: node --test tests/*.test.mjs
       - run: python scripts/check_publication.py
       - run: python scripts/build_site.py

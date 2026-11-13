@@ -1,0 +1,31 @@
+{
+  "id": "V2-34",
+  "title_zh": "iPSC PiggyBac 工程",
+  "title_en": "iPSC PiggyBac engineering",
+  "category": "engineering",
+  "query": "Nonviral genetic engineering of human pluripotent stem cells with a two-plasmid PiggyBac architecture: Lipofectamine-mediated cotransfection of a donor plasmid and a separate transposase plasmid followed by antibiotic selection of stable integrants; apply the platform to a doxycycline-controlled NGN2-BFP iPSC line, verify BFP-positive cells, select with 0.5 micrograms/mL puromycin, and cryopreserve before neuronal differentiation; require executable reagent amounts and timing, and exclude all-in-one PiggyBac vectors, CRISPR/AAVS1 targeting, viral delivery, and imaging-only studies",
+  "model": "qwen/qwen3.6-flash",
+  "doi": "dx.doi.org/10.17504/protocols.io.e6nvwj54dlmk/v2",
+  "title": "Piggybac-mediated stable expression of NGN2 in iPSCs for differentiation into excitatory glutamatergic neurons",
+  "state": "example",
+  "historical": true,
+  "markdown": "## Protocol: Nonviral genetic engineering of human pluripotent stem cells with a two-plasmid PiggyBac architecture: Lipofectamine-mediated cotransfection of a donor plasmid and a separate transposase plasmid followed by antibiotic selection of stable integrants; apply the platform to a doxycycline-controlled NGN2-BFP iPSC line, verify BFP-positive cells, select with 0.5 micrograms/mL puromycin, and cryopreserve before neuronal differentiation; require executable reagent amounts and timing, and exclude all-in-one PiggyBac vectors, CRISPR/AAVS1 targeting, viral delivery, and imaging-only studies\n\n### Overview\n\nThis protocol details the nonviral genetic engineering of human pluripotent stem cells (iPSCs) using a two-plasmid PiggyBac architecture. The process involves Lipofectamine-mediated cotransfection of a donor plasmid (PB-TO-hNGN2-puro-BFP) and a separate transposase plasmid (EF1α-transposase), followed by antibiotic selection with puromycin to isolate stable integrants. The platform is applied to a doxycycline-controlled NGN2-BFP iPSC line. Verification of BFP-positive cells is performed via fluorescence microscopy, and selected cells are cryopreserved prior to neuronal differentiation. This protocol strictly excludes all-in-one PiggyBac vectors, CRISPR/AAVS1 targeting, viral delivery, and imaging-only studies.\n\n### Materials/Reagents\n\nEssential 8 media (ThermoFisher); Growth Factor Reduced Matrigel (Corning); Accutase; ROCK inhibitor (Supplement); OptiMEM; PB-TO-hNGN2-puro-BFP plasmid; EF1α-transposase plasmid; Lipofectamine Stem; Puromycin; Knockout serum replacement; DMSO; Doxycycline.\n\n### Equipment\n\n10 cm culture dishes; 6-well plates; Fluorescence microscope.\n\n### Safety & Sterility\n\nMaintain sterile technique throughout all cell culture and transfection steps. Use appropriate personal protective equipment when handling chemicals such as DMSO and puromycin.\n\n## Piggybac-mediated stable expression of NGN2 in iPSCs for differentiation into excitatory glutamatergic neurons\n\n### Initial Culture\n\n1. Culture iPSCs in a 10 cm dish coated with Growth Factor Reduced Matrigel (Corning) and feed daily with Essential 8 media (ThermoFisher). [1] <!-- protocol-step:B01-T0-S01 -->\n\n### Passage and Plating\n\n1. Passage iPSCs with warm Accutase into Essential 8 media containing 10 micromolar (µM) ROCK inhibitor. Plate 800,000 iPSCs into one Matrigel-coated well of a 6-well plate. [1] <!-- protocol-step:B01-T1-S01 -->\n\n### 3 - 6 hours after plating\n\n1. Verify that cells are healthy and attached 3–6 hours after plating. [1] <!-- protocol-step:B01-T2-S01 -->\n2. Perform transfection using Lipofectamine Stem. Prepare the transfection mix in 200 μL OptiMEM containing 0.75 μg PB-TO-hNGN2-puro-BFP plasmid, 0.37 μg EF1α-transposase plasmid, and 4 μL Lipofectamine Stem, maintaining a 2:1 ratio of donor plasmid to transposase plasmid. [1] <!-- protocol-step:B01-T2-S02 -->\n\n### on the next day\n\n1. Check for transfection efficiency by identifying BFP-labeled cells on the next day using fluorescence microscopy. [1] <!-- protocol-step:B01-T3-S01 -->\n\n### 72:00:00 after transfection\n\n1. 72 hours after transfection, select for transfected iPSCs by treating with 0.5 μg/mL puromycin. [1] <!-- protocol-step:B01-T4-S01 -->\n\n### Cryopreservation\n\n1. Cryopreserve selected iPSCs using a freezing medium composed of 70% Essential 8 media, 20% Knockout serum replacement, 10% DMSO, and 10 µM ROCK inhibitor. [1] <!-- protocol-step:B01-T5-S01 -->\n\n### Post-Cryopreservation Culture\n\n1. When cells are sufficiently confluent, passage iPSCs with Accutase into a 10 cm dish. Continue to feed iPSCs daily with Essential 8 media without ROCK inhibitor, and confirm the division of stably-expressing transfected cells by observing local clusters of BFP-fluorescent cells. [1] <!-- protocol-step:B01-T6-S01 -->\n\n### Confirmation of Purity\n\n1. Confirm the purity of surviving transfected cells using fluorescence microscopy. Once the population is confirmed to be pure, withdraw puromycin from the media. [1] <!-- protocol-step:B01-T7-S01 -->\n\n### Differentiation\n\n1. Proceed to culture and induction to neuronal fate using doxycycline, following the 'Protocol: iNeuron differentiation from human iPSCs'. [1] <!-- protocol-step:B01-T8-S01 -->\n\n## References\n\n- [1] Piggybac-mediated stable expression of NGN2 in iPSCs for differentiation into excitatory glutamatergic neurons — https://www.protocols.io/view/piggybac-mediated-stable-expression-of-ngn2-in-ips-dbgp2jvn\n",
+  "review_notes": [
+    "Historical model-generated draft. Review the source and applicability before use.",
+    "Recorded source match: 明确匹配"
+  ],
+  "sources": [
+    {
+      "title": "Piggybac-mediated stable expression of NGN2 in iPSCs for differentiation into excitatory glutamatergic neurons",
+      "doi": "dx.doi.org/10.17504/protocols.io.e6nvwj54dlmk/v2",
+      "url": "https://doi.org/dx.doi.org/10.17504/protocols.io.e6nvwj54dlmk/v2",
+      "source": "Primary reference · 原始案例主文献"
+    }
+  ],
+  "provenance": {
+    "dataset": "50题本地原文Query修订版_20261027",
+    "date": "2026-10-27",
+    "protocol_sha256": "65faf590e8fa836670dacad58a040a3f8d365555139c4b36d3341afcccb208bb",
+    "match_status": "明确匹配"
+  }
+}

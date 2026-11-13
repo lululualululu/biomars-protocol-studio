@@ -6,7 +6,7 @@ Turn an experimental question into a structured protocol draft, with sources kep
 
 BioMars Protocol Studio extracts the Protocol Generation workflow from BioMARS into an independent, MIT-licensed project. It includes the Python generation engine, a focused browser workspace, and a self-hosted API.
 
-**Status:** early release. The public static site is an explicitly labeled interactive example. Real generation requires the Python service, provider credentials, and a service access code. Generated drafts require review; integrity checks are not experimental validation.
+**Status:** early release. Static builds support example browsing. Real generation runs in the Python service with provider credentials. Personal local mode needs no access code; remote deployments require one unless public generation is explicitly enabled with `STUDIO_PUBLIC_MODE=1`. Generated drafts require review; integrity checks are not experimental validation.
 
 ## Start locally
 
@@ -17,10 +17,14 @@ python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -e '.[dev]'
 cp .env.example .env
-uvicorn studio.api:app --host 127.0.0.1 --port 8000
+python -m studio.local
 ```
 
-Open http://127.0.0.1:8000. Without credentials, you can explore the example. For real jobs, set `OPENROUTER_API_KEY`, the base URL, and a long random `STUDIO_ACCESS_TOKEN` in `.env`, then restart. Enter the access code in the workspace's service settings. Add search-service keys as appropriate for your sources. Models and stages are configured in `config/protocol/protocol_config.yaml`; `OPENROUTER_MODEL` overrides the configured model for web jobs.
+Open http://127.0.0.1:8745. Set `OPENROUTER_API_KEY` and the base URL in `.env`, add your retrieval credentials, then restart. `studio.local` binds only to loopback and disables proxy-header trust; local mode checks both the peer and Host before allowing access. Keep one worker.
+
+The default is **Qwen3.6 Flash** (`qwen/qwen3.6-flash`). The composer also offers Qwen3.6 Plus, Gemini 3 Flash Preview, and DeepSeek V3.2. Model IDs are allowlisted in `studio/models.py`; each task stores its selection so uploading missing papers resumes with the same model. Choose a browser default in Settings → Experiment defaults.
+
+Browse 50 historical project drafts under **Examples**, search by method or category, inspect sources and original queries, and reuse a request in the composer. These are generated drafts with retained review notes. See [example provenance](docs/EXAMPLES.md).
 
 For a locked environment with [uv](https://docs.astral.sh/uv/), use `uv sync --frozen --extra dev`. The checked-in `uv.lock` records the resolved dependency versions.
 
@@ -70,7 +74,7 @@ See [deployment](docs/DEPLOYMENT.md), [architecture](docs/ARCHITECTURE.md), [中
 
 ## What is included
 
-Protocol research, full-text ingestion, structure-first planning, grounded writing, integrity validation, and necessary shared runtime types. Drug, optimization, robot actions, original datasets, credentials, papers, outputs, and original Git history are excluded. Shared orchestration compatibility code is retained to minimize behavioral changes to the extracted pipeline.
+Protocol research, full-text ingestion, structure-first planning, grounded writing, integrity validation, and necessary shared runtime types. Drug, optimization, robot actions, raw datasets, credentials, paper PDFs, private run logs, and original Git history are excluded. The 50 explicitly selected historical draft examples are included with provenance. Shared orchestration compatibility code is retained to minimize behavioral changes to the extracted pipeline.
 
 ## Contributing
 

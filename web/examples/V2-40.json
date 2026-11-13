@@ -1,0 +1,31 @@
+{
+  "id": "V2-40",
+  "title_zh": "胰岛微囊化",
+  "title_en": "Islet microencapsulation",
+  "category": "assays",
+  "query": "Alginate microencapsulation of pancreatic islets followed by viability and glucose-stimulated insulin-secretion assessment",
+  "model": "qwen/qwen3.6-flash",
+  "doi": "10.1016/j.bbrc.2020.05.107",
+  "title": "Improved human islets' viability and functionality with mesenchymal stem cells and arg-gly-asp tripeptides supplementation of alginate micro-encapsulated islets in vitro.",
+  "state": "example",
+  "historical": true,
+  "markdown": "## Protocol: Alginate microencapsulation of pancreatic islets followed by viability and glucose-stimulated insulin-secretion assessment\n\n### Overview\n\nThis protocol outlines the microencapsulation of pancreatic islets with mesenchymal stem cells (MSCs) using an alginate-based solution, followed by viability and glucose-stimulated insulin secretion assessments. The process involves preparing specific alginate solutions, harvesting and mixing cells, encapsulating them via a microfluidic device to achieve specific size constraints, and performing post-encapsulation analysis including insulin quantification and viability staining.\n\n### Materials/Reagents\n\nSLM100 alginate (4% w/w batch), MVG GRGDSP peptide (RGD, Novamatrix, Sandvika, Norway, 10 mg/mL batch), calcium-enriched physiological serum, alginate buffer solution, trisodium citrate (1%), acid ethanol (75% vol), 0.18 N HCl (Sigma-Aldrich, St. Louis, MO, USA), SYTO 13 (Thermo Fisher Scientific, Waltham, Massachusetts, United States), propidium iodide (PI, Interchim, Montluçon, France), commercial radioimmunoassay kit BI-INS-IRMA (Cisbio Bioassay, Codolet, France).\n\n### Equipment\n\nMalvern Bohlin Gemini cone-rheometer (1/60 cone), microfluidic flow-focusing device, ImageJ interface for image analysis macro, fluorescence microscopy equipment capable of excitation/emission at 488/509 nm (SYTO 13) and 545/630 nm (PI).\n\n### Safety & Sterility\n\nStandard aseptic techniques should be employed during cell handling and encapsulation. Specific biosafety levels are not detailed in the source text but implied by the use of human-derived materials and standard laboratory practices.\n\n## Reagent Preparation\n\n### Pre-Encapsulation\n\n1. Culture MSCs as described previously [19]. [1] <!-- protocol-step:B01-T0-S01 -->\n2. Prepare alginate-based solutions: create a batch solution of SLM100 at 4% w/w and a batch solution of MVG GRGDSP at 10 mg/mL (Novamatrix, Sandvika, Norway). Mix these two batch solutions to form an intermediate solution. [1] <!-- protocol-step:B01-T0-S02 -->\n3. Perform rheological characterization on 1.5 ml samples using a Malvern Bohlin Gemini cone-rheometer with a 1/60 cone at 20°C. [1] <!-- protocol-step:B01-T0-S03 -->\n\n## Cell Preparation\n\n### Pre-Encapsulation\n\n1. Harvest MSCs and wash them in calcium-enriched physiological serum. [1] <!-- protocol-step:B02-T0-S01 -->\n2. Wash islets and MSCs (at a ratio of 150 MSCs per islet) in alginate buffer solution. Centrifuge for 3 minutes at 150G and gently mix with a pipette tip. [1] <!-- protocol-step:B02-T0-S02 -->\n\n## Microencapsulation\n\n### Encapsulation\n\n1. Prepare the reference microcapsule composition containing pancreatic islets entrapped in 2.5% SLM100 alginate. The final composite product must contain: SLM100 at 2.5% w/w, RGD-G rich alginate at 0.5 mg/mL, 150 MSCs per islet, and pancreatic islets. [1] <!-- protocol-step:B03-T0-S01 -->\n2. Process the high-viscosity solutions inside a microfluidic flow-focusing device to produce microcapsules, aiming for a maximum production rate of 120 microcapsules per minute. [1] <!-- protocol-step:B03-T0-S02 -->\n> **Operational constraint:** Set applied pressures to obtain capsules with a diameter ranging around 450-500 µm, ensuring a coefficient of variation inferior to 5%. [1] <!-- protocol-step:B03-T0-S03 -->\n\n## Post-Encapsulation Analysis\n\n### 24 hours after encapsulation\n\n1. Twenty-four hours after encapsulation, incubate 100 islets for each condition tested as described previously [19]. [1] <!-- protocol-step:B04-T0-S01 -->\n2. Extract total insulin content by dissociating the capsule with 1% trisodium citrate, followed by incubation in a solution of acid ethanol (75% vol) and 0.18 N HCl (Sigma-Aldrich, St. Louis, MO, USA). [1] <!-- protocol-step:B04-T0-S02 -->\n3. Measure human insulin concentration in each collected media using the commercial radioimmunoassay kit BI-INS-IRMA (Cisbio Bioassay, Codolet, France). [1] <!-- protocol-step:B04-T0-S03 -->\n4. Determine the viability of encapsulated islets 24 hours after encapsulation using double staining with SYTO 13 (excitation/emission 488/509 nm, Thermo Fisher Scientific) and propidium iodide (PI) (excitation/emission 545/630 nm, Interchim), as described previously [20]. [1] <!-- protocol-step:B04-T0-S04 -->\n5. Perform cell staining and image acquisition. [1] <!-- protocol-step:B04-T0-S05 -->\n6. Develop and apply an image analysis macro on the ImageJ interface to discriminate islet viability from MSC viability based on size criteria. Select islets as regions of interest on transmission images and apply these to acquired fluorescence images. Automatically quantify red and green fluorescent nuclei within these selected regions. [1] <!-- protocol-step:B04-T0-S06 -->\n\n## References\n\n- [1] Improved human islets' viability and functionality with mesenchymal stem cells and arg-gly-asp tripeptides supplementation of alginate micro-encapsulated islets in vitro. — https://doi.org/10.1016/j.bbrc.2020.05.107\n",
+  "review_notes": [
+    "Historical model-generated draft. Review the source and applicability before use.",
+    "Recorded source match: 明确匹配"
+  ],
+  "sources": [
+    {
+      "title": "Improved human islets' viability and functionality with mesenchymal stem cells and arg-gly-asp tripeptides supplementation of alginate micro-encapsulated islets in vitro.",
+      "doi": "10.1016/j.bbrc.2020.05.107",
+      "url": "https://doi.org/10.1016/j.bbrc.2020.05.107",
+      "source": "Primary reference · 原始案例主文献"
+    }
+  ],
+  "provenance": {
+    "dataset": "50题本地原文Query修订版_20261027",
+    "date": "2026-10-27",
+    "protocol_sha256": "3838301cc9e17853c7ed6b4ead63ce8bfe5ead0964d5627b2ee765ce7b7fdde2",
+    "match_status": "明确匹配"
+  }
+}
