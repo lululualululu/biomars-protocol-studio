@@ -1,0 +1,73 @@
+# BioMars Protocol Studio
+
+Turn an experimental question into a structured protocol draft, with sources kept close.
+
+[Try the interactive preview](https://biomars-protocol-studio.zylu0301.chatgpt.site) · [产品方案](docs/PRODUCT_PLAN.zh-CN.md) · [Design](docs/DESIGN.md)
+
+BioMars Protocol Studio extracts the Protocol Generation workflow from BioMARS into an independent, MIT-licensed project. It includes the Python generation engine, a focused browser workspace, and a self-hosted API.
+
+**Status:** early release. The public static site is an explicitly labeled interactive example. Real generation requires the Python service, provider credentials, and a service access code. Generated drafts require review; integrity checks are not experimental validation.
+
+## Start locally
+
+```bash
+git clone https://github.com/lululualululu/biomars-protocol-studio.git
+cd biomars-protocol-studio
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -e '.[dev]'
+cp .env.example .env
+uvicorn studio.api:app --host 127.0.0.1 --port 8000
+```
+
+Open http://127.0.0.1:8000. Without credentials, you can explore the example. For real jobs, set `OPENROUTER_API_KEY`, the base URL, and a long random `STUDIO_ACCESS_TOKEN` in `.env`, then restart. Enter the access code in the workspace's service settings. Add search-service keys as appropriate for your sources. Models and stages are configured in `config/protocol/protocol_config.yaml`; `OPENROUTER_MODEL` overrides the configured model for web jobs.
+
+For a locked environment with [uv](https://docs.astral.sh/uv/), use `uv sync --frozen --extra dev`. The checked-in `uv.lock` records the resolved dependency versions.
+
+The API runs one generation subprocess at a time with a bounded queue and timeout. Keep one Uvicorn worker. Tasks and uploaded files persist under `var/studio`. A browser cookie isolates task access; the access code limits generation to invited users. This is an initial self-hosted service, not a managed multi-tenant platform.
+
+## CLI
+
+```bash
+python launch_protocol.py --query "Prepare a literature-grounded protocol draft for routine adherent-cell culture" \
+  --config config/protocol/protocol_config.yaml
+```
+
+When a run needs full text, retain the session ID and configuration:
+
+```bash
+python launch_protocol.py --session_id EXISTING_SESSION_ID \
+  --manual_pdf_dir /absolute/path/papers \
+  --config config/protocol/protocol_config.yaml
+```
+
+The default PDF path extracts text with PyMuPDF. Scanned documents may require a separately installed MinerU backend or a text-native replacement; GPU/CUDA packages are not part of the default installation.
+
+## Browser experience
+
+- Start with one experimental request; add context or reference files only when useful.
+- Follow real workflow stages and resume a task when full text is missing.
+- Review draft text, source links, and unresolved items in one workspace.
+- Export Markdown or print/save PDF using the browser.
+- Reopen tasks from the same browser; delete tasks and their local server files.
+
+The static site never sends requests or files to a model. The self-hosted service sends supplied text to configured model/retrieval providers during generation. Do not upload material you cannot share with those services.
+
+## Development and deployment
+
+```bash
+pytest
+python scripts/check_publication.py
+python scripts/build_site.py
+docker compose up --build
+```
+
+See [deployment](docs/DEPLOYMENT.md), [architecture](docs/ARCHITECTURE.md), [中文产品与构建方案](docs/PRODUCT_PLAN.zh-CN.md), and [source provenance](docs/PROVENANCE.md). The static build is `dist/`; Python hosting uses the included Dockerfile. A static deployment does not run the generation engine.
+
+## What is included
+
+Protocol research, full-text ingestion, structure-first planning, grounded writing, integrity validation, and necessary shared runtime types. Drug, optimization, robot actions, original datasets, credentials, papers, outputs, and original Git history are excluded. Shared orchestration compatibility code is retained to minimize behavioral changes to the extracted pipeline.
+
+## Contributing
+
+Small changes with a reproducible case are welcome. Keep inputs synthetic or licensed for redistribution, run the tests, and never commit credentials or research uploads. See [CONTRIBUTING](CONTRIBUTING.md). [MIT license](LICENSE).

@@ -1,0 +1,53 @@
+# AutoProtocol Configuration
+# Minimal configuration for testing the DomainPack phase
+
+version: "1.0.0"
+
+models:
+  default_provider: "openrouter"
+  openrouter:
+    model_name: "qwen/qwen3.5-flash-02-23"
+    api_key: "" # Set via OPENROUTER_API_KEY env var
+    max_tokens: 20000
+    temperature: 0.7
+
+workflow:
+  task_type: "protocol_generation"
+  pipeline:
+    - protocol_domain_pack
+    - protocol_research
+    - protocol_pdf_ingest
+    - protocol_planning
+    - protocol_grounded_writer
+    - protocol_critic
+
+  max_iterations: 1
+  max_concurrent_tasks: 3
+  # PDF ingest defaults to the primary anchor because downstream protocol
+  # planning/writing runs in single-source mode. Set to "all" to restore
+  # parsing every selected supporting anchor PDF.
+  protocol_pdf_ingest_scope: "primary"
+  # Reject oversized manual PDFs before MinerU or fallback text extraction.
+  # Supply the article/chapter PDF instead of an entire book or journal volume.
+  protocol_pdf_max_pages: 30
+  # Prefer fast text extraction for text-native article PDFs. MinerU remains
+  # the fallback for sparse, scanned, or technically damaged PDF text.
+  protocol_pdf_prefer_pymupdf: true
+
+agents:
+  protocol_domain_pack:
+    model_provider: "openrouter"
+    temperature: 0.2
+  protocol_research:
+    model_provider: "openrouter"
+    temperature: 0.2
+  protocol_planning:
+    model_provider: "openrouter"
+    temperature: 0.4 # Higher temperature for creative planning
+  protocol_grounded_writer:
+    model_provider: "openrouter"
+    temperature: 0.2
+    
+memory:
+  backend: "file_system"
+  file_dir: "var/results"
