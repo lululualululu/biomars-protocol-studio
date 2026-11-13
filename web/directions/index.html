@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#161616" />
+    <meta
+      name="description"
+      content="BioMars Protocol Studio — 25 design perspectives. Explore, save and compare."
+    />
+    <title>25 Perspectives — BioMars Protocol Studio</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="gallery.css" />
+  </head>
+  <body>
+    <header class="gallery-header">
+      <a class="gallery-brand" href="#all" aria-label="BioMars 设计总览"
+        >BioMars<span> / Directions</span></a
+      >
+      <nav aria-label="展示方式">
+        <a href="#all" data-nav="all">总览 <sup>25</sup></a
+        ><a href="#saved" data-nav="saved">收藏 <sup id="saved-count">0</sup></a
+        ><a href="#compare" data-nav="compare"
+          >对比 <span aria-hidden="true">◫</span></a
+        >
+      </nav>
+      <a class="studio-link" href="../">Studio ↗</a>
+    </header>
+    <main id="gallery"></main>
+    <div id="notice" class="notice" role="status" aria-live="polite"></div>
+    <script type="module" src="gallery.js"></script>
+  </body>
+</html>

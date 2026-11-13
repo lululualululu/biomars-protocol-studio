@@ -7,6 +7,7 @@ const icon = (name, size=16) => {
 let lang = localStorage.getItem('biomars-language') || 'en';
 const t = (en, zh) => lang === 'zh' ? zh : en;
 let apiAvailable = false, generationAvailable = false, currentJob = null, pollTimer, files = [], draftQuery = '', draftContext = {}, activeTab = 'sources', raw = false;
+try { draftQuery = sessionStorage.getItem('biomars-design-draft') || ''; sessionStorage.removeItem('biomars-design-draft'); } catch {}
 let token = sessionStorage.getItem('biomars-access') || '';
 const stages = ['protocol_domain_pack', 'protocol_research', 'protocol_pdf_ingest', 'protocol_planning', 'protocol_grounded_writer', 'protocol_critic'];
 const stageNames = () => [t('Understanding your request','理解实验需求'),t('Finding relevant sources','查找相关文献'),t('Reading the full text','解析参考全文'),t('Organizing the procedure','组织实验步骤'),t('Writing your draft','撰写 Protocol 草稿'),t('Checking completeness','检查完整性')];

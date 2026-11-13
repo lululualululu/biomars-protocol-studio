@@ -2,7 +2,7 @@
 
 Turn an experimental question into a structured protocol draft, with sources kept close.
 
-[Try the interactive preview](https://biomars-protocol-studio.zylu0301.chatgpt.site) · [产品方案](docs/PRODUCT_PLAN.zh-CN.md) · [Design](docs/DESIGN.md)
+[Try the interactive preview](https://biomars-protocol-studio.zylu0301.chatgpt.site) · [25 design perspectives](https://biomars-protocol-studio.zylu0301.chatgpt.site/directions/) · [产品方案](docs/PRODUCT_PLAN.zh-CN.md) · [Design](docs/DESIGN.md)
 
 BioMars Protocol Studio extracts the Protocol Generation workflow from BioMARS into an independent, MIT-licensed project. It includes the Python generation engine, a focused browser workspace, and a self-hosted API.
 
@@ -42,6 +42,10 @@ python launch_protocol.py --session_id EXISTING_SESSION_ID \
 ```
 
 The default PDF path extracts text with PyMuPDF. Scanned documents may require a separately installed MinerU backend or a text-native replacement; GPU/CUDA packages are not part of the default installation.
+
+## Design directions
+
+Explore 25 separately composed visual directions at [`/directions/`](https://biomars-protocol-studio.zylu0301.chatgpt.site/directions/): overview, full-screen previews, local favorites and side-by-side comparison. Each concept has its own typography, layout, color and interaction. Experimental requests transfer into the existing Studio composer. The showcase itself does not generate protocols. See [artwork and prompts](docs/design-assets.md).
 
 ## Browser experience
 
